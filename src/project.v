@@ -7,14 +7,17 @@
 
 module tt_um_uwasic_onboarding_david_xu (
 
- // Create wires to refer to the values of the registers
+    // Add this inside the module block
+  assign uio_oe = 8'hFF; // Set all IOs to output
+  
+  // Create wires to refer to the values of the registers
   wire [7:0] en_reg_out_7_0;
   wire [7:0] en_reg_out_15_8;
   wire [7:0] en_reg_pwm_7_0;
   wire [7:0] en_reg_pwm_15_8;
   wire [7:0] pwm_duty_cycle;
 
-// Instantiate the PWM module
+    // Instantiate the PWM module
   pwm_peripheral pwm_peripheral_inst (
     .clk(clk),
     .rst_n(rst_n),
@@ -25,9 +28,6 @@ module tt_um_uwasic_onboarding_david_xu (
     .pwm_duty_cycle(pwm_duty_cycle),
     .out({uio_out, uo_out})
   );
-  
-// Add this inside the module block
-assign uio_oe = 8'hFF; // Set all IOs to output
 
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
@@ -45,6 +45,8 @@ assign uio_oe = 8'hFF; // Set all IOs to output
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
+  wire _unused = &{ena, ui_in[7:3], uio_in, 1'b0};
   wire _unused = &{ena, clk, rst_n, 1'b0};
+  
 
 endmodule

@@ -47,12 +47,12 @@ pinout:
   # Bidirectional pins
   uio[0]: "OUT8"
   uio[1]: "OUT9"
-  uio[2]: "OUT10"
-  uio[3]: "OUT11"
-  uio[4]: "OUT12"
-  uio[5]: "OUT13"
-  uio[6]: "OUT14"
-  uio[7]: "OUT15"
+  uio[2]: "OUTA"
+  uio[3]: "OUTB"
+  uio[4]: "OUTC"
+  uio[5]: "OUTD"
+  uio[6]: "OUTE"
+  uio[7]: "OUTF"
 
 # Do not change!
 yaml_version: 6
